@@ -184,7 +184,7 @@ streamlit run app.py
 **Rashi Ladvikar**  
 Data Analyst  
 📧 Email: rashiladvikar@gmail.com  
-🔗 [LinkedIn](www.linkedin.com/in/rashi-ladvikar)  
+🔗 [LinkedIn](https://www.linkedin.com/in/rashi-ladvikar/)  
 
 
 

@@ -1,8 +1,14 @@
 # Vendor Invoice Intelligence System  
 **Freight Cost Prediction & Invoice Risk Flagging**
 
+An **end-to-end machine learning system** built to help finance and procurement teams detect abnormal invoices and predict freight costs using historical vendor transaction data.
+
+---
+
 ## 📌 Table of Contents
 - <a href="#project-overview">Project Overview</a>
+- <a href="#key-features">Key Features</a>
+- <a href="#project-architecture">Project Architecture</a>
 - <a href="#business-objectives">Business Objectives</a>
 - <a href="#data-sources">Data Sources</a>
 - <a href="#eda">Exploratory Data Analysis</a>
@@ -12,6 +18,7 @@
 - <a href="#project-structure">Project Structure</a>
 - <a href="#how-to-run-this-project">How to Run This Project</a>
 - <a href="#author--contact">Author & Contact</a>
+
 ---
 
 <h2><a class="anchor" id="project-overview"></a>📌 Project Overview</h2>
@@ -20,6 +27,38 @@ This project implements an **end-to-end machine learning system** designed to su
 
 1. **Predicting expected freight cost** for vendor invoices.
 2. **Flagging high-risk invoices** that require manual review due to abnormal cost, freight, or operational patterns.
+
+The goal is to help organizations **improve financial monitoring, reduce manual auditing effort, and detect operational anomalies early**.
+
+---
+
+<h2><a class="anchor" id="key-features"></a>⭐ Key Features</h2>
+
+• Machine learning based **freight cost prediction**  
+• Automated **invoice risk detection system**  
+• Model comparison across multiple ML algorithms  
+• Hyperparameter tuning using **GridSearchCV**  
+• **Streamlit web application** for real-time predictions  
+• Business-driven **EDA and statistical validation**
+
+SQLite Database
+↓
+Data Extraction (SQL)
+↓
+Data Processing (Pandas)
+↓
+Feature Engineering
+↓
+Model Training
+↓
+Model Evaluation
+↓
+Best Model Selection
+↓
+Saved Models (.pkl)
+↓
+Streamlit Application
+
 
 ---
 
@@ -31,11 +70,13 @@ This project implements an **end-to-end machine learning system** designed to su
 Predict the expected freight cost for a vendor invoice using quantity, invoice value, and historical behavior.
 
 **Why it matters:**
+
 - Freight is a non-trivial component of landed cost.
 - Poor freight estimation impacts margin analysis and budgeting.
 - Early prediction improves procurement planning and vendor negotiation.
 
 ![](images/freight_prediction.png)
+
 ---
 
 ### 2. Invoice Risk Flagging (Classification)
@@ -44,11 +85,13 @@ Predict the expected freight cost for a vendor invoice using quantity, invoice v
 Predict whether a vendor invoice should be flagged for manual approval due to abnormal cost, freight, or delivery patterns.
 
 **Why it matters:**
+
 - Manual invoice review does not scale.
 - Financial leakage often occurs in large or complex invoices.
 - Early risk detection improves audit efficiency and operational control.
 
 ![](images/flag_invoice_prediction.png)
+
 ---
 
 <h2><a class="anchor" id="data-sources"></a>📂 Data Sources</h2>
@@ -79,29 +122,35 @@ Statistical tests (t-tests) are used to confirm that flagged invoices differ mea
 <h2><a class="anchor" id="models-used"></a>🤖 Models Used</h2>
 
 ### Regression (Freight Prediction)
+
 - Linear Regression (baseline)
 - Decision Tree Regressor
 - Random Forest Regressor (final model)
 
 ### Classification (Invoice Flagging)
+
 - Logistic Regression (baseline)
 - Decision Tree Classifier
 - Random Forest Classifier (final model with GridSearchCV)
 
-Hyperparameter tuning is performed using **GridSearchCV** with F1-score to handle class imbalance.
+Hyperparameter tuning is performed using **GridSearchCV** with **F1-score** to handle class imbalance.
 
 ---
 
 <h2><a class="anchor" id="metrics"></a>📈 Evaluation Metrics</h2>
 
 ### Freight Prediction
+
 - MAE
 - RMSE
 - R² Score
 
 ### Invoice Flagging
+
 - Accuracy
-- Precision, Recall, F1-score
+- Precision
+- Recall
+- F1-score
 - Classification report
 - Feature importance analysis
 
@@ -134,7 +183,6 @@ inventory-invoice-analytics/
 ├── invoice_flagging/
 │   ├── data_preprocessing.py
 │   ├── model_evaluation.py
-│   ├── model_evaluation.py
 │   └── train.py
 │
 ├── inference/
@@ -147,44 +195,34 @@ inventory-invoice-analytics/
 │   └── predict_flag_invoice.pkl
 │
 ├── notebooks/
-│   ├── Invoice Flagging.pkl
+│   ├── Invoice Flagging.ipynb
 │   └── Predict Freight Cost.ipynb
 │
 ├── app.py
 ├── README.md
 └── .gitignore
-```
-
----
 
 <h2><a class="anchor" id="how-to-run-this-project"></a>How to Run This Project</h2>
 
-1. Clone the repository:
-```bash
-git clone https://github.com/yourusername/inventory-invoice-analytics.git
-```
-2. Train and Save Best Fit Models:
-```bash
+git clone https://github.com/RashiLadvikar/vendor-invoice-intelligence-system.git
+
+2️⃣ Train and save models
 python freight_cost_prediction/train.py
 python invoice_flagging/train.py
-```
-3. Test Models:
-```bash
+3️⃣ Test models
 python inference/predict_freight.py
 python inference/predict_invoice_flag.py
-``` 
-4. Open Application:
-```bash
+4️⃣ Run the Streamlit application
 streamlit run app.py
-```
-
----
 <h2><a class="anchor" id="author--contact"></a>Author & Contact</h2>
 
-**Rashi Ladvikar**  
-Data Analyst  
-📧 Email: rashiladvikar@gmail.com  
-🔗 [LinkedIn](https://www.linkedin.com/in/rashi-ladvikar/)  
+Rashi Ladvikar
 
+Data Analyst
 
+📧 Email: rashiladvikar@gmail.com
 
+🔗 LinkedIn
+---
+
+<h2><a class="anchor" id="project-architecture"></a>⚙️ Project Architecture</h2>
